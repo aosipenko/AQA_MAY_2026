@@ -3,7 +3,6 @@ package org.prog.session2;
 // TODO: replace all _ with . in this email: test_email_for_qa@gmail_com
 // TODO: extract and print text between $: thisstringhas$some fragment$thathastobeextracted
 
-import java.util.Random;
 
 public class Main {
 
