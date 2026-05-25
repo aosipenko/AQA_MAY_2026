@@ -41,44 +41,52 @@ public class Main {
 //        System.out.println("This string will be substringed".substring(10));
 //        System.out.println("This string will be substringed".substring(10, 20));
 
-        Random rand = new Random();
-        int i = rand.nextInt(11);
+//        Random rand = new Random();
+//        int i = rand.nextInt(11);
 //        boolean b = true;
 //        System.out.println("b: " + b);
 //        System.out.println("!b: " + !b);
 
-        System.out.println("i: " + i);
-        System.out.println("i == 10 -> " + (i == 10));
-        System.out.println("i != 10 -> " + (i != 10));
-        System.out.println("i > 5 -> " + (i > 5));
-        System.out.println("i < 5 -> " + (i < 5));
-        System.out.println("i >= 5 -> " + (i >= 5));
-        System.out.println("i <= 5 -> " + (i <= 5));
+//        System.out.println("i: " + i);
+//        System.out.println("i == 10 -> " + (i == 10));
+//        System.out.println("i != 10 -> " + (i != 10));
+//        System.out.println("i > 5 -> " + (i > 5));
+//        System.out.println("i < 5 -> " + (i < 5));
+//        System.out.println("i >= 5 -> " + (i >= 5));
+//        System.out.println("i <= 5 -> " + (i <= 5));
+//
+//        if (i >= 8) {
+//            System.out.println("i was greater or equal to 8");
+//        }
+//
+//        if (i >= 4) {
+//            System.out.println("i was greater or equal to 4");
+//        }
+//
+//        if (i >= 2) {
+//            System.out.println("i was greater or equal to 2");
+//        } else {
+//            System.out.println("i was NOT greater or equal to 2");
+//        }
+//
+//        if (i == 1) {
+//            System.out.println("i was 1");
+//        } else if (i == 3) {
+//            System.out.println("i was 3");
+//        } else {
+//            System.out.println("i was neither 1 or 3");
+//        }
+//
+//        System.out.println("Done!");
+        String email = "test_email_for_qa@gmail_com";
+        String testEmail = email.replace("_", ".");
+        System.out.println(testEmail);
 
-        if (i >= 8) {
-            System.out.println("i was greater or equal to 8");
-        }
-
-        if (i >= 4) {
-            System.out.println("i was greater or equal to 4");
-        }
-
-        if (i >= 2) {
-            System.out.println("i was greater or equal to 2");
-        } else {
-            System.out.println("i was NOT greater or equal to 2");
-        }
-
-        if (i == 1) {
-            System.out.println("i was 1");
-        } else if (i == 3) {
-            System.out.println("i was 3");
-        } else {
-            System.out.println("i was neither 1 or 3");
-        }
-
-        System.out.println("Done!");
-
+        String dollar = "thisstringhas$some fragment$thathastobeextracted";
+        int firstDollar = dollar.indexOf("$");
+        int secondDollar = dollar.indexOf("$", firstDollar + 1);
+        String result = dollar.substring(firstDollar + 1, secondDollar);
+        System.out.println(result);
     }
 
 }
