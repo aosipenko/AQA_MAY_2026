@@ -2,7 +2,7 @@ package org.prog.session3;
 
 //TODO: print only valid emails
 //TODO: valid email has:
-//TODO: - at least 3 symbols before @
+//TODO: - at least 3 symbols before @ т
 //TODO: - at least 7 symbols in domain (after @) (cannot start or end with dot)
 //TODO: - 1 dot in domain
 //TODO: - only one @
