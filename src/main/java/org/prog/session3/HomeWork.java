@@ -20,5 +20,33 @@ public class HomeWork {
                 "asd@@asd.asd",
                 "some_email_that_is_very_long@long_domain_name.com" //+
         };
+
+
+        for (String email : emails) {
+
+            int firstGaw = email.indexOf("@");
+            int lastGaw = email.lastIndexOf("@");
+
+//gaw only one
+            if (firstGaw != -1 && firstGaw == lastGaw) {
+
+//login domen
+                String login = email.substring(0, firstGaw);
+                String domain = email.substring(firstGaw + 1);
+
+//lenght
+                if (login.length() >= 3 && domain.length() >= 7) {
+
+                    //dots
+                    if (!domain.startsWith(".") && !domain.endsWith(".")) {
+                        int firstDot = domain.indexOf(".");
+                        int lastDot = domain.lastIndexOf(".");
+                        if (firstDot != -1 && firstDot == lastDot) {
+                            System.out.println(email);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
