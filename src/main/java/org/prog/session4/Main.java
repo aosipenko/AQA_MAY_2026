@@ -32,9 +32,12 @@ public class Main {
         car1.maxSpeed = 50;
         car2.maxSpeed = 250;
 
+        car1.owner = "Nikita";
+        car2.owner = "John";
+
         int distance = 45;
 
-        car1.goTo(distance);
-        car2.goTo(500);
+        car1.goTo(distance, "Warsaw");
+        car2.goTo(500, "Berlin");
     }
 }
