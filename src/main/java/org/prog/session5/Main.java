@@ -1,5 +1,7 @@
 package org.prog.session5;
 
+import java.util.Random;
+
 public class Main {
 
     //TODO: Create class Plane
@@ -10,15 +12,44 @@ public class Main {
     //TODO* : sort planes by taken seats amount as %
     //TODO** : use bubble sort
 
-    public static void main(String[] args) {
-        Train train1 = new Train("A-1", 10);
-        Train train2 = new Train("B-2", 45);
-        Train train3 = new Train("C-3", 90);
-        Train train4 = new Train("D-4", 455);
-        System.out.println(train1.announcement());
-        System.out.println(train2.announcement());
-        System.out.println(train3.announcement());
-        System.out.println(train4.announcement());
+        public static void main(String[] args) {
+            Random random = new Random();
+            Plane[] planes = new Plane[50];
+
+            for (int i = 0; i < planes.length; i++) {
+                planes[i] = new Plane();
+                planes[i].passengers = random.nextInt(201);
+            }
+            for (int i = 0; i < planes.length - 1; i++) {
+                for (int j = 0; j < planes.length - i - 1; j++) {
+
+                    int currentTaken = 100 - planes[j].getFreeSeatsPercentage();
+                    int nextTaken = 100 - planes[j + 1].getFreeSeatsPercentage();
+
+                    if (currentTaken < nextTaken) {
+                        Plane temp = planes[j];
+                        planes[j] = planes[j + 1];
+                        planes[j + 1] = temp;
+                    }
+                }
+            }
+
+            for (int i = 0; i < planes.length; i++) {
+                int takenPercent = 100 - planes[i].getFreeSeatsPercentage();
+                System.out.println("Place " + (i + 1) + " in top -> " +
+                        "Passengers: " + planes[i].passengers + " out of " + planes[i].maxSeats +
+                        " (Busy: " + takenPercent + "%, Free: " + planes[i].getFreeSeatsPercentage() + "%)");
+            }
+        }
+    }
+    // Train train1 = new Train("A-1", 10);
+        //Train train2 = new Train("B-2", 45);
+        //Train train3 = new Train("C-3", 90);
+        //Train train4 = new Train("D-4", 455);
+        //System.out.println(train1.announcement());
+       // System.out.println(train2.announcement());
+        //System.out.println(train3.announcement());
+       // System.out.println(train4.announcement());
 
 //        Car redCar = new Car();
 //        Car blueCar = new Car();
@@ -90,5 +121,4 @@ public class Main {
 //        for (int i = 0; i < cars2.length; i++) {
 //            cars2[i].color = "red";
 //        }
-    }
-}
+//
