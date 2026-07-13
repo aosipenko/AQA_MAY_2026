@@ -3,7 +3,7 @@
 <suite name="Suite1" verbose="1">
     <test name="UserReg">
         <classes>
-            <class name="org.prog.session17.CucumberRunner"/>
+            <class name="org.prog.session17.allure.AllureStepsDemoTest"/>
         </classes>
     </test>
 </suite>
