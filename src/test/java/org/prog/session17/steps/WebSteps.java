@@ -19,8 +19,7 @@ public class WebSteps {
     }
 
     @When("I set search input to {string} name")
-    public void setSearchInputToRandomPersonsName(String alias) throws InterruptedException {
+    public void setSearchInputToRandomPersonsName(String alias){
         googlePage.setSearchValue((String) DataHolder.data.get(alias));
-        Thread.sleep(10000);
     }
 }

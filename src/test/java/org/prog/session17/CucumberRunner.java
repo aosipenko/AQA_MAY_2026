@@ -12,14 +12,16 @@ import org.prog.session17.util.DBConnectionFactory;
 import org.prog.session17.util.WebDriverFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.DataProvider;
 
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 @CucumberOptions(
         features = {"src/test/resources/features"},
         glue = "org.prog.session17.steps",
         plugin = {
-                "pretty",
+//                "pretty",
                 "html:target/report.html",
                 "json:target/Cucumber.json",
                 "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"
@@ -28,10 +30,19 @@ import java.sql.SQLException;
 public class CucumberRunner extends AbstractTestNGCucumberTests {
 
     private WebDriver driver;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
+
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() {
+        return super.scenarios();
+    }
 
     @SneakyThrows
     @BeforeSuite
     public void beforeSuite() {
+        startTime = LocalDateTime.now();
         driver = WebDriverFactory.getDriver();
         WebSteps.googlePage = new GooglePage(driver);
         DBSteps.connection = DBConnectionFactory.getConnection();
@@ -45,5 +56,12 @@ public class CucumberRunner extends AbstractTestNGCucumberTests {
     @AfterSuite
     public void afterSuite2() throws SQLException {
         DBSteps.connection.close();
+    }
+
+    @AfterSuite
+    public void afterSuite3() throws SQLException {
+        endTime = LocalDateTime.now();
+        System.out.println(">>>>>> " + startTime);
+        System.out.println(">>>>>> " + endTime);
     }
 }
