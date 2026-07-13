@@ -1,4 +1,4 @@
-package org.prog.session16.util;
+package org.prog.session17.util;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
