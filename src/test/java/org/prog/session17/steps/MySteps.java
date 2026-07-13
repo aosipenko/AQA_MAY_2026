@@ -5,8 +5,10 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.util.Map;
+import java.util.Random;
 
 public class MySteps {
 
@@ -33,5 +35,12 @@ public class MySteps {
         for (Map.Entry<String, String> entry : userData.entrySet()) {
             System.out.println("Add to BD: " + entry.getKey() + ": " + entry.getValue());
         }
+    }
+
+    @Given("Fail {int} in {int}")
+    public void failIn(int value1, int value2) {
+        Random random = new Random();
+        int i = random.nextInt(value2);
+        Assert.assertTrue(value1 > i);
     }
 }
