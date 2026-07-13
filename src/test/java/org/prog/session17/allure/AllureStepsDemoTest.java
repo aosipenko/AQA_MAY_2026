@@ -1,5 +1,7 @@
 package org.prog.session17.allure;
 
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
 import org.prog.session17.allure.tool.APITool;
 import org.prog.session17.allure.tool.DBTool;
 import org.prog.session17.allure.tool.WebTool;
@@ -12,6 +14,7 @@ public class AllureStepsDemoTest {
     private WebTool webTool = new WebTool();
 
     @Test
+    @Severity(SeverityLevel.BLOCKER)
     public void allureStepsDemo() {
         apiTool.mrthod1("test_value_1");
         apiTool.mrthod5();
