@@ -41,6 +41,6 @@ public class MySteps {
     public void failIn(int value1, int value2) {
         Random random = new Random();
         int i = random.nextInt(value2);
-        Assert.assertTrue(value1 > i);
+        Assert.assertTrue(value1 > i, "Failing " + value1 + " should be > " + i);
     }
 }
